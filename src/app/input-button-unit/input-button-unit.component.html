@@ -1,0 +1,5 @@
+<input class="todo-input"
+  #inputElementRef [value]="placeholder" (click)="cleanInput()"/>
+    <button class="btn" (click)="submitValue(inputElementRef.value); cleanInput()">
+      Save
+    </button>

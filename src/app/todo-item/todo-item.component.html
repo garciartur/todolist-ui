@@ -1,0 +1,24 @@
+<div class="todo-item">
+    <input type="checkbox"
+         class="todo-checkbox"
+         (click)="completeItem()"
+         [checked]="item.completed"/>
+        
+         <ng-template [ngIf] = "!isEditable" [ngIfElse]= "editableItem">
+            <span class="todo-title" [ngClass]="{'todo-complete': item.completed}">
+                {{ item.title }}
+            </span>
+        </ng-template>
+
+        <ng-template #editableItem>
+            <input type="text" class="todo-input" (keyup.enter)="editItem($event)">
+        </ng-template>
+
+    <button class="btn btn-blue" (click)="this.isEditable=true">
+        edit
+    </button>
+
+    <button class="btn btn-red" (click)="removeItem()">
+        remove
+    </button>
+</div>
